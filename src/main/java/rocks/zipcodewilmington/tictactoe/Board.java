@@ -4,11 +4,14 @@ package rocks.zipcodewilmington.tictactoe;
  * @author leon on 6/22/18.
  */
 public class Board {
-    public Board(Character[][] matrix) {
+    private Character[][] boardState;
 
-        for (int i = 0; i < 3; i++){
+    public Board(Character[][] matrix) {
+        boardState = matrix;
+        for (int i = 0; i < 3; i++) {
+            System.out.println();
             for (int j = 0; j < 3; j++) {
-                matrix[i][j].charValue();
+                System.out.print(matrix[i][j]);
             }
         }
     }
@@ -28,13 +31,13 @@ public class Board {
     public String getWinner() {
         String winner = "";
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (matrix[i][j] == matrix[i][j] && matrix[i][j] == matrix[i][j]) {
-                    winner = matrix[i][j].charValue();
-                }
-            }
-        }
+//        for (int i = 0; i < 3; i++) {
+//            for (int j = 0; j < 3; j++) {
+//                if (matrix[i][j] == matrix[i][j] && matrix[i][j] == matrix[i][j]) {
+//                    winner = matrix[i][j].charValue();
+//                }
+//            }
+//        }
         return winner;
     }
 
