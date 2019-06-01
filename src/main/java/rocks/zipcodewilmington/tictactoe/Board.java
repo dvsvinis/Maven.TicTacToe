@@ -18,14 +18,14 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
-        if (getWinner().equals('X')) {
+        if (getWinner().equals("X")) {
             return true;
         }
         return false;
     }
 
     public Boolean isInFavorOfO() {
-        if (getWinner().equals('O')) {
+        if (getWinner().equals("O")) {
             return true;
         }
         return false;
@@ -51,7 +51,7 @@ public class Board {
         //check columns
         for (int i = 0; i < 3; i++) {
             if (boardState[0][i].equals(boardState[1][i]) &&  boardState[0][i].equals(boardState[2][i])){
-                return boardState[0][1].toString();
+                return boardState[0][i].toString();
             }
         }
 
