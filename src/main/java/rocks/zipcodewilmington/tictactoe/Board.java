@@ -4,7 +4,7 @@ package rocks.zipcodewilmington.tictactoe;
  * @author leon on 6/22/18.
  */
 public class Board {
-    private Character[][] boardState;
+    Character[][] boardState;
 
     public Board(Character[][] matrix) {
         boardState = matrix;
@@ -14,39 +14,60 @@ public class Board {
                 System.out.print(matrix[i][j]);
             }
         }
+        System.out.println();
     }
 
     public Boolean isInFavorOfX() {
-        return null;
+        if (getWinner().equals('X')) {
+            return true;
+        }
+        return false;
     }
 
     public Boolean isInFavorOfO() {
-        return null;
+        if (getWinner().equals('O')) {
+            return true;
+        }
+        return false;
     }
 
     public Boolean isTie() {
-        return null;
+        if (getWinner().equals("")) {
+            return true;
+        }
+        return false;
     }
+
 
     public String getWinner() {
-        String winner = "";
 
-//        for (int i = 0; i < 3; i++) {
-//            for (int j = 0; j < 3; j++) {
-//                if (matrix[i][j] == matrix[i][j] && matrix[i][j] == matrix[i][j]) {
-//                    winner = matrix[i][j].charValue();
-//                }
-//            }
-//        }
-        return winner;
+        //check rows
+        for (int i = 0; i < 3; i++) {
+            if (boardState[i][0].equals(boardState[i][1]) && boardState[i][0].equals(boardState[i][2]) ){
+                return boardState[i][0].toString();
+            }
+        }
+
+        //check columns
+        for (int i = 0; i < 3; i++) {
+            if (boardState[0][i].equals(boardState[1][i]) &&  boardState[0][i].equals(boardState[2][i])){
+                return boardState[0][1].toString();
+            }
+        }
+
+        // Check diagonals
+        if (boardState[0][0].equals(boardState[1][1]) &&  boardState[0][0].equals(boardState[2][2])){
+                return boardState[0][0].toString();
+            }
+
+        if (boardState[0][2].equals(boardState[1][1]) &&  boardState[0][2].equals(boardState[2][0])){
+             return boardState[0][2].toString();
+        }
+
+        return "";
+
     }
 
 
-        // check all rows
-//        for(int x=0; x<3; x++) {
-//            if( (matrix[x][0] == matrix[x][1]) && (matrix[x][1] == matrix[x][2]) ) {
-//                return(matrix[x][1]);
-//            }
-//    }
 
 }
